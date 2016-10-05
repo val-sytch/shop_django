@@ -2,7 +2,7 @@ import configparser
 import os
 
 path = os.path.realpath(os.path.dirname(__file__))
-config = configparser.ConfigParser()
+config = configparser.ConfigParser(interpolation=None)
 config.read(os.path.join(path, 'config.ini'))
 
 DATABASE_NAME = config.get('DATABASE', 'database_name')
