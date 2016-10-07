@@ -5,9 +5,17 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
 body{
-	background: #fff;
-	font-family: 'Open Sans', sans-serif;
+	/*background: #fff;
+	font-family: 'Open Sans', sans-serif;*/
+	background: #F2E2C8 url(../images/dog-close-up-backgrounds-1.jpg) 100% 100% no-repeat;
+    background-position: top;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
 }
+
+
+
 body a{
 	transition: 0.5s all;
 	-webkit-transition: 0.5s all;
@@ -16,7 +24,7 @@ body a{
 	-moz-transition: 0.5s all;
 }
 .top-header{
-	background: #F97E76;
+	background: #555;
 	padding: 0.7em 0;
 }
 .top-header-left{
@@ -261,8 +269,8 @@ ul.cute li{
 	padding: 4em 2em;
 }
 .shoes-grid{
-	width: 70%;
-	float: right;
+	width: 100%;/*70*/
+	/*float: right;*/
 }
 .slide-grid{
 	width: 100%;
@@ -816,7 +824,7 @@ p.m_text {
 	padding: 0;
 }
 .login-left h3, .login-right h3 {
-	color: #F97E76;
+	color: #000;
 	font-size: 1.1em;
 	text-transform: uppercase;
 	font-weight: 600;
@@ -889,7 +897,7 @@ a.forgot {
 }
 /*--register--*/
 .register-top-grid h3, .register-bottom-grid h3 {
-	color:#F97E76;
+	color:#000;
 	font-size: 1.1em;
 	padding-bottom: 5px;
 	margin: 0;
