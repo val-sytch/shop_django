@@ -1,0 +1,3 @@
+recursive-include djog/templates *.html
+recursive-include djog/config *.ini
+recursive-include djog/static *
