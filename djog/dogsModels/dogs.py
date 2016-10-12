@@ -2,19 +2,6 @@ from django.db import models
 import datetime
 #Create your models here
 
-class SingUp(models.Model):
-    """Append to user registration"""
-    username = models.CharField(max_length=50)
-    first_name = models.CharField(max_length=50)
-    second_name = models.CharField(max_length=50)
-    email = models.EmailField()
-    password = models.CharField(max_length=18)
-    regis_date = models.DateTimeField(auto_now_add=False, auto_now=True)#Registration timestamp
-
-    def __str__(self):
-        return self.first_name
-
-
 class Breeds(models.Model):
     """Category"""
     breed = models.CharField(max_length=120, verbose_name='Breed name')

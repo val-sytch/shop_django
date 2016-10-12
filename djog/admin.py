@@ -1,3 +1,4 @@
 from django.contrib import admin
-from djog.models import * #Sucker punch. Replace with class names
+from djog.dogsModels.dogs import Breeds, Dogs
+from djog.userModels.users import SingUp
 # Register your models here.
