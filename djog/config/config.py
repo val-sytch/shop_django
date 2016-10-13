@@ -3,11 +3,11 @@ import os
 
 path = os.path.realpath(os.path.dirname(__file__))
 config = configparser.ConfigParser(interpolation=None)
-
-if os.environ['DJANGO_PROJ_MODE'] == 'prod':
-    config.read(os.path.join(path, 'config_prod.ini'))
-else:
-    config.read(os.path.join(path, 'config_develop.ini'))
+try:
+    file_config = 'config{0}.ini'.format(os.environ['DJANGO_PROJ_MODE'])
+except KeyError:
+    file_config = 'config.ini'
+config.read(os.path.join(path, file_config))
 
 DATABASE_NAME = config.get('DATABASE', 'database_name')
 DATABASE_ENGINE = config.get('DATABASE', 'database_engine')
