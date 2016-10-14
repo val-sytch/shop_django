@@ -3,7 +3,12 @@ import os
 
 path = os.path.realpath(os.path.dirname(__file__))
 config = configparser.ConfigParser(interpolation=None)
+<<<<<<< HEAD
 config.read(os.path.join(path, 'config.ini'))
+=======
+file_config = 'config{0}.ini'.format(os.getenv('DJANGO_PROJ_MODE', ''))
+config.read(os.path.join(path, file_config))
+>>>>>>> master
 
 DATABASE_NAME = config.get('DATABASE', 'database_name')
 DATABASE_ENGINE = config.get('DATABASE', 'database_engine')
