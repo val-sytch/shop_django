@@ -11,13 +11,11 @@
                 <div class="thumbnail">
                     <img class="img-responsive" src="{% static "djog/images/puppy-cropped-800x300.jpg" %}" alt="">
                     <div class="caption-full">
-                        <h4 class="pull-right">$24.99</h4>
-                        <h4><a href="#">Product Name</a>
+                        <h4 class="pull-right">{{dog_details.price}} $</h4>
+                        <h4>{{dog_details.alias}}</a>
                         </h4>
-                        <p>Want to make these reviews work? Check out
-                            <strong><a href="http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/">this building a review system tutorial</a>
-                            </strong>over at maxoffsky.com!</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                        <p>{{dog_details.breed}}</p>
+                        <p>{{dog_details.description}}</p>
                         <div class="text-right">
                         <a href="#" class="btn btn-primary btn-success right"><span class="glyphicon glyphicon-shopping-cart"></span> Buy now</a>
                         </div>
