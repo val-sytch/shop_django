@@ -21,7 +21,7 @@ class Dogs(models.Model):
     Main class
     """
     alias = models.SlugField(verbose_name='Item alias')
-    breeds = models.ForeignKey(Breeds)
+    breed = models.ForeignKey(Breeds)
     description = models.TextField(max_length=1000, verbose_name="Short description")
     image = models.CharField(max_length=100, verbose_name='Image URL')
     price = models.IntegerField(default=0, verbose_name='Price')

@@ -40,101 +40,32 @@
 
                 </div>
 
-                <div class="row">
+
+<div class="row">
+{% for dog in dogs_list %}
 
                     <div class="col-sm-4 col-lg-4 col-md-4">
                         <div class="thumbnail">
-                            <a href="{% url 'details' %}"><img src="{% static "djog/images/320px.jpg" %}" alt=""></a>
+
+                            <a href="/details/{{dog.alias}}/"><img width="130" src={{dog.image}} alt=""></a><!--width temp!-->
                             <div class="caption">
-                                <h4 class="pull-right">$24.99</h4>
-                                <h4><a href="{% url 'details' %}">The Dog</a>
+                                <h4 class="pull-right">{{dog.price}}</h4>
+                                <h4><a href="/details/{{dog.alias}}/">{{dog.alias}}</a>
                                 </h4>
-                                <p>Man's best friend.</a></p>
+                                <p>{{dog.breed}}</a></p>
+
                                 <div class="text-right">
                                 <a href="#" class="btn btn-primary btn-success right"><span class="glyphicon glyphicon-shopping-cart"></span> Buy now</a>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-
-                      <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-                            <a href="{% url 'details' %}"><img src="{% static "djog/images/320px.jpg" %}" alt=""></a>
-                            <div class="caption">
-                                <h4 class="pull-right">$24.99</h4>
-                                <h4><a href="{% url 'details' %}">The Dog</a>
-                                </h4>
-                                <p>Man's best friend.</a></p>
-                                <div class="text-right">
-                                <a href="#" class="btn btn-primary btn-success right"><span class="glyphicon glyphicon-shopping-cart"></span> Buy now</a>
-                                </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-                            <a href="{% url 'details' %}"><img src="{% static "djog/images/320px.jpg" %}" alt=""></a>
-                            <div class="caption">
-                                <h4 class="pull-right">$24.99</h4>
-                                <h4><a href="{% url 'details' %}">The Dog</a>
-                                </h4>
-                                <p>Man's best friend.</a></p>
-                                <div class="text-right">
-                                <a href="#" class="btn btn-primary btn-success right"><span class="glyphicon glyphicon-shopping-cart"></span> Buy now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                     <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-                            <a href="{% url 'details' %}"><img src="{% static "djog/images/320px.jpg" %}" alt=""></a>
-                            <div class="caption">
-                                <h4 class="pull-right">$24.99</h4>
-                                <h4><a href="{% url 'details' %}">The Dog</a>
-                                </h4>
-                                <p>Man's best friend.</a></p>
-                                <div class="text-right">
-                                <a href="#" class="btn btn-primary btn-success right"><span class="glyphicon glyphicon-shopping-cart"></span> Buy now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-                            <a href="{% url 'details' %}"><img src="{% static "djog/images/320px.jpg" %}" alt=""></a>
-                            <div class="caption">
-                                <h4 class="pull-right">$24.99</h4>
-                                <h4><a href="{% url 'details' %}">The Dog</a>
-                                </h4>
-                                <p>Man's best friend.</a></p>
-                                <div class="text-right">
-                                <a href="#" class="btn btn-primary btn-success right"><span class="glyphicon glyphicon-shopping-cart"></span> Buy now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                     <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-                            <a href="{% url 'details' %}"><img src="{% static "djog/images/320px.jpg" %}" alt=""></a>
-                            <div class="caption">
-                                <h4 class="pull-right">$24.99</h4>
-                                <h4><a href="{% url 'details' %}">The Dog</a>
-                                </h4>
-                                <p>Man's best friend.</a></p>
-                                <div class="text-right">
-                                <a href="#" class="btn btn-primary btn-success right"><span class="glyphicon glyphicon-shopping-cart"></span> Buy now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+{% endfor %}
             </div>
 
         </div>
+
+    </div>
 
     </div>
     {% endblock %}

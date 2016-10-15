@@ -1,7 +1,12 @@
 from django.shortcuts import render
+from . models.model_dogs import Dogs
 
 def index(request):
-    return render(request, 'djog/index.html')
+    dogs_list = Dogs.objects.all()
+    context = {
+        'dogs_list': dogs_list
+    }
+    return render(request, 'djog/index.html', context)
 
 def login(request):
     return render(request, 'djog/login.html')
@@ -15,8 +20,9 @@ def cart(request):
 def register(request):
     return render(request, 'djog/register.html')
 
-def details(request):
-    """
-    Just for preview
-    """
-    return render(request, 'djog/details.html')
+def details(request, alias):
+    dog_details = Dogs.objects.get(alias=alias)
+    context = {
+        'dog_details':dog_details
+    }
+    return render(request, 'djog/details.html', context)
