@@ -1,9 +1,10 @@
 from django.db import models
-import datetime
-#Create your models here
+
 
 class Breeds(models.Model):
-    """Category"""
+    """
+    Category
+    """
     breed = models.CharField(max_length=120, verbose_name='Breed name')
     alias = models.SlugField(verbose_name='Breed alias')
 
@@ -16,7 +17,9 @@ class Breeds(models.Model):
 
 
 class Dogs(models.Model):
-    """Dagz, do ya like dagz?"""
+    """
+    Main class
+    """
     breeds = models.ForeignKey(Breeds)
     description = models.TextField(max_length=1000, verbose_name="Short description")
     image = models.CharField(max_length=100, verbose_name='Image URL')
