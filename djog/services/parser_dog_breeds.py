@@ -1,5 +1,5 @@
-import urllib.request
 from bs4 import BeautifulSoup
+from urllib.request import urlopen
 
 WIKI_DOGS_URL = 'https://en.wikipedia.org/wiki/List_of_dog_breeds'
 
@@ -10,7 +10,7 @@ def parser_breeds():
     structured code page. Searches
     for all tags <tr> and gets titles all dog breeds.
     """
-    response = urllib.request.urlopen(WIKI_DOGS_URL)
+    response = urlopen(WIKI_DOGS_URL)
     html_doc = response.read()
     breeds = []
     soup = BeautifulSoup(html_doc, 'lxml')
