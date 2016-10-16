@@ -15,15 +15,12 @@ def login(request):
 def logout(request):
     return render(request, 'djog/logout.html')
 
-# def cart(request):
-#     return render(request, 'djog/cart.html')
-
 def register(request):
     return render(request, 'djog/register.html')
 
-def details(request, alias):
+def details(request, id):
     try:
-        dog_details = Dogs.objects.get(alias=alias)
+        dog_details = Dogs.objects.get(id=id)
     except:
         raise Http404
     context = {
