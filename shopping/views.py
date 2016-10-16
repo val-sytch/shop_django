@@ -30,11 +30,12 @@ def add(request, id):
 #                                           message))
 
 
-def remove(request):
+def remove(request, id):
     cart = Cart(request.session)
-    product = Dogs.objects.get(id=request.GET.get('id'))
+    product = Dogs.objects.get(id=id)
     cart.remove(product)
-    return HttpResponse("Removed")
+    message = 'The dog was removed from the cart'
+    return HttpResponseRedirect(reverse('cart:shopping-cart-show'), message)
 
 
 def show(request):

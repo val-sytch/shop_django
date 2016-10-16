@@ -43,7 +43,7 @@
 
 <div class="row">
 {% for dog in dogs_list %}
-
+{% if dog not in cart %}
                     <div class="col-sm-4 col-lg-4 col-md-4">
                         <div class="thumbnail">
 
@@ -61,6 +61,7 @@
                             </div>
                             </div>
                         </div>
+    {% endif %}
 {% endfor %}
             </div>
 

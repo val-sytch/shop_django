@@ -58,8 +58,8 @@
                     <li>
                         <a href="{% url 'login' %}">Login</a>
                     </li>
-                    <li>
-                        <a href="{% url 'cart:shopping-cart-show' %}">Cart</a>
+                    <li {% if cart.count > 0 %} class="active">
+                        <a href="{% url 'cart:shopping-cart-show' %}">Cart ({{ cart.count }})</a>{% endif %}
                     </li>
                 </ul>
             </div>
