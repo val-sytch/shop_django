@@ -1,11 +1,10 @@
 from django.db import models
-
+from  datetime import*
+#Create your models here
 
 class Breeds(models.Model):
-    """
-    Category
-    """
-    breed = models.CharField(max_length=120, verbose_name='Breed name')
+    """Category"""
+    breeds = models.CharField(max_length=120, verbose_name='Breed name')
     alias = models.SlugField(verbose_name='Breed alias')
 
     class Meta:
@@ -13,13 +12,11 @@ class Breeds(models.Model):
         verbose_name_plural = "Breeds"
 
     def __str__(self):
-        return 'Breed %s' % self.breed
+        return 'Breed %s' % self.breeds
 
 
 class Dogs(models.Model):
-    """
-    Main class
-    """
+    """Dagz, do ya like dagz?"""
     breeds = models.ForeignKey(Breeds)
     description = models.TextField(max_length=1000, verbose_name="Short description")
     image = models.CharField(max_length=100, verbose_name='Image URL')
@@ -29,6 +26,10 @@ class Dogs(models.Model):
     alias = models.SlugField(verbose_name='Item alias')
     timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
+
+    class Meta:
+        verbose_name = "Dog"
+        verbose_name_plural = "Dogs"
 
 
     def __str__(self):
