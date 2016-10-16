@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
 from urllib.request import urlopen
+from djog.models.model_dogs import Breeds
 
 WIKI_DOGS_URL = 'https://en.wikipedia.org/wiki/List_of_dog_breeds'
 
@@ -19,6 +20,16 @@ def parser_breeds():
         column = rows.a.get('title')
         breeds.append(column)
     return breeds
+
+
+def add_breeds():
+    """
+    some problems
+    """
+    breeds_list = parser_breeds()
+    for breed in breeds_list:
+        dog_breed = Breeds.save(breed=breed)
+    return dog_breed
 
 
 def main():
