@@ -12,7 +12,6 @@ from djog.servises.img_resizer_and_watermark_add import img_resizer_and_watermar
 
 API_KEY = 'AIzaSyAENBpRgjuR8YRsVL09l-n41I_RHqwNfTs'
 CUSTOM_SEARCH_ENGINE_ID = '017619512220957009035:2tzs1jfauia'
-QUERY = 'Barbet'
 NUMBER_IMG_REQUIR = 2
 
 def request_to_google_cse(api_key, query, custom_search_engine_id, number_img_requir):
