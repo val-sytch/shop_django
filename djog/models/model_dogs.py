@@ -22,11 +22,11 @@ class Dogs(models.Model):
     """
     alias = models.SlugField(verbose_name='Item alias')
     breed = models.ForeignKey(Breeds)
-    description = models.TextField(max_length=1000, verbose_name="Short description")
+    description = models.TextField(max_length=1000, verbose_name='Short description')
     image = models.CharField(max_length=100, verbose_name='Image URL')
     price = models.IntegerField(default=0, verbose_name='Price')
-    age = models.IntegerField(default=0, verbose_name="Age")
-    quantity = models.IntegerField(default=0, verbose_name='Quantity')
+    age = models.IntegerField(default=0, verbose_name='Age')
+    availability = models.BooleanField(default=True, verbose_name='Availability')
     timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
 
