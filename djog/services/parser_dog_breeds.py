@@ -1,5 +1,7 @@
+import os
 from bs4 import BeautifulSoup
 from urllib.request import urlopen
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "shop_django.settings")
 from djog.models.model_dogs import Breeds
 
 WIKI_DOGS_URL = 'https://en.wikipedia.org/wiki/List_of_dog_breeds'
@@ -24,20 +26,14 @@ def parser_breeds():
 
 def add_breeds():
     """
-    some problems
+    Add breeds to database
     """
     breeds_list = parser_breeds()
     for breed in breeds_list:
-        dog_breed = Breeds.save(breed=breed)
-    return dog_breed
-
-
-def main():
-    """
-    Print result.
-    """
-    print(parser_breeds())
+        dog_breed = Breeds(breed=breed)
+        dog_breed.save()
+        print(breed + 'was successfully added')
 
 
 if __name__ == '__main__':
-    main()
+    add_breeds()
