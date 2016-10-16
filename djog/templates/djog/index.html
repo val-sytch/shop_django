@@ -55,7 +55,8 @@
                                 <p>{{dog.breed}}</a></p>
 
                                 <div class="text-right">
-                                <a href="#" class="btn btn-primary btn-success right"><span class="glyphicon glyphicon-shopping-cart"></span> Buy now</a>
+                                <a href="{% url "cart:shopping-cart-add" dog.id %}" class="btn btn-primary btn-success right">
+                                    <span class="glyphicon glyphicon-shopping-cart"></span> Buy now</a>
                                 </div>
                             </div>
                             </div>

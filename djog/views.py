@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import Http404
 from . models.model_dogs import Dogs
 
 def index(request):
@@ -14,15 +15,19 @@ def login(request):
 def logout(request):
     return render(request, 'djog/logout.html')
 
-def cart(request):
-    return render(request, 'djog/cart.html')
+# def cart(request):
+#     return render(request, 'djog/cart.html')
 
 def register(request):
     return render(request, 'djog/register.html')
 
 def details(request, alias):
-    dog_details = Dogs.objects.get(alias=alias)
+    try:
+        dog_details = Dogs.objects.get(alias=alias)
+    except:
+        raise Http404
     context = {
-        'dog_details':dog_details
+            'dog_details':dog_details
     }
     return render(request, 'djog/details.html', context)
+
