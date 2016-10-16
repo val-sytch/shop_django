@@ -13,4 +13,4 @@ class SingUp(models.Model):
     regis_date = models.DateTimeField(auto_now_add=False, auto_now=True)  # Registration timestamp
 
     def __str__(self):
-        return self.first_name
+        return self.username

@@ -39,6 +39,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'carton',
+    'shopping',
     'djog',
 )
 
@@ -103,3 +105,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = STATIC_URL
+CART_PRODUCT_MODEL = 'djog.models.model_dogs.Dogs'
