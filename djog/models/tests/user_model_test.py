@@ -1,7 +1,5 @@
 from django.test import TestCase
 from django.utils import timezone
-"""from djog.models.model_dogs import Breeds, Dogs Not ready yet
-"""
 from djog.models.model_user_registration import SingUp
 
 # Create your tests here.
