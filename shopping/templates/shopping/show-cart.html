@@ -28,7 +28,7 @@
 						<div class="col-xs-2"><img class="img-responsive" src="http://placehold.it/100x70">
 						</div>
 						<div class="col-xs-4">
-							<h4 class="product-name"><strong>{{ item.product }}</strong></h4><h4><small>{{ item.quantity }}</small></h4>
+							<h4 class="product-name"><strong>{{ item.product.alias }}</strong></h4><h4><small>{{ item.quantity }}</small></h4>
 						</div>
 						<div class="col-xs-6">
 							<div class="col-xs-6 text-right">
@@ -54,9 +54,9 @@
 							<h4 class="text-right">Total <strong>{{ cart.total }}</strong></h4>
 						</div>
 						<div class="col-xs-3">
-							<button type="button" class="btn btn-success btn-block">
+							<a href="{% url "order" %}" type="button" class="btn btn-success btn-block">
 								Checkout
-							</button>
+							</a>
 						</div>
 					</div>
 				</div>
