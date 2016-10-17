@@ -27,7 +27,7 @@ class Dogs(models.Model):
     price = models.IntegerField(default=0, verbose_name='Price')
     age = models.IntegerField(default=0, verbose_name='Age')
     availability = models.BooleanField(default=True, verbose_name='Availability')
-    timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
+    created = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
 
     class Meta:

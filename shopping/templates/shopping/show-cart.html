@@ -25,14 +25,14 @@
 				<div class="panel-body">
 					{% for item in cart.items %}
 					<div class="row">
-						<div class="col-xs-2"><img class="img-responsive" src="http://placehold.it/100x70">
+						<div class="col-xs-4"><img class="img-responsive" src="/{{ item.product.image }}">
 						</div>
 						<div class="col-xs-4">
-							<h4 class="product-name"><strong>{{ item.product.alias }}</strong></h4><h4><small>{{ item.quantity }}</small></h4>
+							<h4 class="product-name"><strong>{{ item.product.alias }}</strong></h4><h4><small>{{ item.quantity }} qty.</small></h4>
 						</div>
-						<div class="col-xs-6">
+						<div class="col-xs-4">
 							<div class="col-xs-6 text-right">
-								<h6><strong>{{ item.subtotal }} <span class="text-muted">x</span></strong></h6>
+								<h6><strong>{{ item.subtotal }} <span class="text-muted">$ </span></strong></h6>
 							</div>
 							<div class="col-xs-5">
 								<a href="{% url "cart:shopping-cart-remove" item.product.id %}" class="btn btn-link btn-xs">
@@ -41,6 +41,7 @@
 							</div>
 						</div>
 					</div>
+					<br>
 					{% endfor %}
 					<hr>
 					<div class="row">

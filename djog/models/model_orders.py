@@ -30,6 +30,11 @@ class Orders(models.Model):
     phone = models.CharField(max_length=20, verbose_name='Phone')
     email = models.EmailField(max_length=20, null=True, verbose_name='E-mail')
     item = models.ForeignKey(Dogs)
+    created = models.DateTimeField(auto_now_add=True, auto_now=False)
+
+    class Meta:
+        verbose_name = "Order"
+        verbose_name_plural = "Orders"
 
     def __str__(self):
         return str(self.id)

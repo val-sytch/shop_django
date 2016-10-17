@@ -4,13 +4,13 @@ from djog.models.model_customers import Customers
 from djog.models.model_orders import Orders
 
 class DogsAdmin(admin.ModelAdmin):
-    list_display = ('id', 'alias', 'breed', 'price', 'timestamp', 'updated')
+    list_display = ('id', 'alias', 'breed', 'price', 'created', 'updated')
 
 class CustomersAdmin(admin.ModelAdmin):
     list_display = ('username', 'first_name', 'second_name', 'email', 'password', 'regis_date')
 
 class OrdersAdmin(admin.ModelAdmin):
-    list_display = ('item', 'customer', 'name', 'surname','phone', 'email', )
+    list_display = ('item', 'customer', 'name', 'surname','phone', 'email', 'created' )
 
 admin.site.register(Breeds)
 admin.site.register(Dogs, DogsAdmin)
