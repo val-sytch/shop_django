@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class SingUp(models.Model):
+class Customers(models.Model):
     """
     Append to user registration
     """
