@@ -5,10 +5,10 @@ from urllib.request import Request, urlopen
 from urllib.error import HTTPError
 from djog.config.config import (UPLOAD_IMAGE, IMG_WIDTH_REQUIR, IMG_HEIGHT_REQUIR,
                                 WATERMARK, WATERMARK_OPACITY, NUMBER_IMG_REQUIR)
-from djog.servises.servises_config.serv_config import API_KEY, CUSTOM_SEARCH_ENGINE_ID
+from djog.services.services_config.serv_config import API_KEY, CUSTOM_SEARCH_ENGINE_ID
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "shop_django.settings")
 from djog.models.model_dogs import Breeds, Dogs
-from djog.servises.img_resizer_and_watermark_add import img_resizer_and_watermark_add
+from djog.services.img_resizer_and_watermark_add import img_resizer_and_watermark_add
 
 
 def request_to_google_cse(api_key, query, custom_search_engine_id, number_img_requir):
