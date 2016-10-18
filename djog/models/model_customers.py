@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class SingUp(models.Model):
+class Customers(models.Model):
     """
     Append to user registration
     """
@@ -11,6 +11,10 @@ class SingUp(models.Model):
     email = models.EmailField()
     password = models.CharField(max_length=18)
     regis_date = models.DateTimeField(auto_now_add=False, auto_now=True)  # Registration timestamp
+
+    class Meta:
+        verbose_name = "Customer"
+        verbose_name_plural = "Customers"
 
     def __str__(self):
         return self.username
