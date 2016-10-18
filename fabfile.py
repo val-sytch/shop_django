@@ -38,3 +38,17 @@ def runtest():
     Run tests in djog
     """
     local('python manage.py test djog')
+
+
+def write_breeds_in_db():
+    """
+    Launch script, which parse wiki and write all breeds to database
+    """
+    local('python djog/services/parser_dog_breeds.py')
+
+
+def download_img():
+    """
+    Launch script, which download pictures for each breed in db
+    """
+    local('python djog/services/google_img_downloader.py')
