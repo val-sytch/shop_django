@@ -1,18 +1,15 @@
 import os
-from datetime import datetime
 from io import BytesIO
 from googleapiclient.discovery import build
 from urllib.request import Request, urlopen
 from urllib.error import HTTPError
 from djog.config.config import (UPLOAD_IMAGE, IMG_WIDTH_REQUIR, IMG_HEIGHT_REQUIR,
-                                WATERMARK, WATERMARK_OPACITY)
+                                WATERMARK, WATERMARK_OPACITY, NUMBER_IMG_REQUIR)
+from djog.servises.servises_config.serv_config import API_KEY, CUSTOM_SEARCH_ENGINE_ID
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "shop_django.settings")
-from djog.models.model_dogs import Breeds
+from djog.models.model_dogs import Breeds, Dogs
 from djog.servises.img_resizer_and_watermark_add import img_resizer_and_watermark_add
 
-API_KEY = 'AIzaSyAENBpRgjuR8YRsVL09l-n41I_RHqwNfTs'
-CUSTOM_SEARCH_ENGINE_ID = '017619512220957009035:2tzs1jfauia'
-NUMBER_IMG_REQUIR = 2
 
 def request_to_google_cse(api_key, query, custom_search_engine_id, number_img_requir):
     """
@@ -50,9 +47,13 @@ def download_images_by_link(number_img_required, links, image_width_requir, img_
     :param watermark: absolute path to watermark picture
     :param watermark_opacity: required watermark opacity
     :param path_to_img_save: absolute path to place for saving image
+    :return dict with images' filename
     """
     # use header because some links raise 403 error
-    hdr = {'User-Agent': 'Mozilla/5.0'}
+    hdr = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 '
+                         '(KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11',
+           'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'}
+    img_list = []
 
     for i in range(0, number_img_required):
         try:
@@ -64,13 +65,16 @@ def download_images_by_link(number_img_required, links, image_width_requir, img_
             image_buffer_edited = img_resizer_and_watermark_add(image_buffer_byte, image_width_requir,
                                                                 img_height_requir, watermark,
                                                                 watermark_opacity)
-            timestamp = datetime.now().strftime("%Y%m%d-%H%M%S")
-            new_img_filename = 'img_' + str(i) + '_' + timestamp + '.png'
+            new_img_filename = str(i) + '.png'
             image_buffer_edited.save(os.path.join(path_to_img_save, new_img_filename), 'PNG')
             image_on_web.close()
-            print(new_img_filename + ' was succesfully downloaded ')
+            img_list.append(new_img_filename)
+            print(new_img_filename + ' was successfully downloaded ')
         except HTTPError:
             print('HTTP Error 403: Forbidden. Link is not valid')
+        except OSError:
+            print('OSError.')
+    return img_list
 
 
 def main():
@@ -85,8 +89,12 @@ def main():
         # create folder for each breed if it isn't exist
         if not os.path.exists(folder_single_breed_img):
             os.makedirs(folder_single_breed_img)
-        download_images_by_link(NUMBER_IMG_REQUIR, links, IMG_WIDTH_REQUIR, IMG_HEIGHT_REQUIR,
-                                WATERMARK, WATERMARK_OPACITY, folder_single_breed_img )
+        img_list = download_images_by_link(NUMBER_IMG_REQUIR, links, IMG_WIDTH_REQUIR, IMG_HEIGHT_REQUIR,
+                                           WATERMARK, WATERMARK_OPACITY, folder_single_breed_img )
+        new_dog = Dogs(alias='Maylo',breed=breed,description='Good dog',image=img_list)
+        new_dog.save()
+        print(str(breed) + ' dog was created ')
+
 
 
 if __name__ == '__main__':
