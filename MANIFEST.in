@@ -2,3 +2,5 @@ recursive-include djog/templates *.html
 recursive-include djog/config *.ini
 recursive-include djog/static *
 recursive-include shopping/templates/shopping *.html
+recursive-include djog/services/services_config *.ini
+include *.py
