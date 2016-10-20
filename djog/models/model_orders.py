@@ -5,6 +5,7 @@ from djog.models.model_customers import Customers
 class Orders(models.Model):
     """
     The fields of the orders
+    
     """
     CREATED = 1
     IN_PROGRESS = 2

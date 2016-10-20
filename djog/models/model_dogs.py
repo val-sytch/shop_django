@@ -19,6 +19,7 @@ class Breeds(models.Model):
 class Dogs(models.Model):
     """
     Main class
+    
     """
     alias = models.SlugField(verbose_name='Item alias')
     breed = models.ForeignKey(Breeds)
