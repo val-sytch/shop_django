@@ -1,10 +1,9 @@
 import os
 from bs4 import BeautifulSoup
+from djog.services.services_config.serv_config import WIKI_DOGS_URL
 from urllib.request import urlopen
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "shop_django.settings")
 from djog.models.model_dogs import Breeds
-
-WIKI_DOGS_URL = 'https://en.wikipedia.org/wiki/List_of_dog_breeds'
 
 
 def parser_breeds():
