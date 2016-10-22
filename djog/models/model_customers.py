@@ -4,6 +4,7 @@ from django.db import models
 class Customers(models.Model):
     """
     Append to user registration
+    
     """
     username = models.CharField(max_length=50)
     first_name = models.CharField(max_length=50)
